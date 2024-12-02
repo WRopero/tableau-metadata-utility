@@ -21,7 +21,7 @@ def access_token_authenticate(access_token, access_token_secret, site_id,
     return server_tsc, tableau_auth
 
 
-def get_tableau_metadata(server_tsc, tableau_auth, query, app_config, lookback_date):
+def get_tableau_metadata(server_tsc, tableau_auth, query, app_config, lookback_date, hyper_name):
     """
     Main function to query the Tableau Server and save the metadata of the workbooks in a JSON and CSV file.
     """
@@ -85,7 +85,8 @@ def get_tableau_metadata(server_tsc, tableau_auth, query, app_config, lookback_d
         # Extract the hyper file
         grouped_wirkbook_events = process_hyper_file(output_dir=output_dir,
                                                      users_ignore_list=app_config['user_ignore_list'],
-                                                     lookback_date=lookback_date)
+                                                     lookback_date=lookback_date,
+                                                     hyper_name)
 
         grouped_wirkbook_events.to_csv(f'{output_dir}/workbooks_usage_events_count_{current_datetime}.csv',
             sep=',',
