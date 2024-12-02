@@ -20,6 +20,8 @@ server_name = os.getenv("TABLEAU_SERVER_NAME")
 site_id = os.getenv("TABLEAU_SITE_ID")
 version = os.getenv("TABLEAU_VERSION")
 
+hyper_name= ""
+
 with open("config/config.yml", 'r') as f:
     app_config = yaml.safe_load(f)
 
@@ -56,7 +58,7 @@ def main():
 
     server_tsc.use_server_version()
 
-    get_tableau_metadata(server_tsc, tableau_auth, query, app_config, lookback_date)
+    get_tableau_metadata(server_tsc, tableau_auth, query, app_config, lookback_date, hyper_name)
     
     end_time = time.time()
     elapsed_time = str(timedelta(seconds=round(end_time - start_time)))
