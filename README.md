@@ -1,7 +1,5 @@
 # tableau-metadata-utility
 
-# Atlan Metadata Crawler
-
 This utility gets all Tableau metadata querying the Graph API for workbooks and Hyper.
 
 ## Prerequisites
