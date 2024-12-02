@@ -1,0 +1,4 @@
+user_ignore_list:
+  enabled: true
+  users_email: 
+  - 'user@company.com'
