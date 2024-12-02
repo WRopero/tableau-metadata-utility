@@ -1,0 +1,21 @@
+query getAllWorkbooksWithEmbeddedDatasources {
+    workbooks {
+    id
+    name
+    description
+    uri
+    createdAt
+    updatedAt
+    projectName
+    description
+    owner {
+        id
+        username
+    }
+    embeddedDatasources {
+        id
+        name
+        hasExtracts
+        extractLastRefreshTime}
+    }
+}
